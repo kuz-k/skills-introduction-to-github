@@ -1,0 +1,10 @@
+select distinct t1.goods_sn
+    ,t2.kpi_cate
+    ,t2.target
+    ,t2.ulp_account
+    ,t2.type_new
+from tmp_dps_excellent_model_onsale_detail as t1 
+inner join dm.anls_model_performance_25_06 as t2
+    on t1.new_cate_2_nm = t2.new_cate_2_nm
+        and t1.channel_1_nm = t2.channel_1_nm
+where t1.shop_nm != t2.not_shop_nm
